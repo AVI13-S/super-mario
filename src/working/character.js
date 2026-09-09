@@ -101,7 +101,7 @@ export class Character {
 
     this.state = resolvePlayerState(this.body, input, this.state);
     this._applyAnimationForState();
-    this.animator.update(dt); // animation timing stays real-time (dt in seconds)
+    this.animator.update(dt); 
   }
 
   _applyAnimationForState() {
