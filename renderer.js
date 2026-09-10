@@ -147,4 +147,17 @@ export class Renderer {
     this.ctx.fillStyle = '#000000';
     this.ctx.fillRect(x + 52, y + 100, 40, 60);
   }
+
+  /*renderWinOverlay(score) {
+  this.ctx.fillStyle = 'rgba(0, 0, 0, 0.75)';
+  this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+  this.ctx.fillStyle = '#f1c40f';
+  this.ctx.font = 'bold 32px monospace';
+  this.ctx.textAlign = 'center';
+  this.ctx.fillText('YOU WON!', this.canvas.width / 2, this.canvas.height / 2 - 20);
+  this.ctx.fillStyle = '#ffffff';
+  this.ctx.font = '16px monospace';
+  this.ctx.fillText(`FINAL SCORE: ${score}`, this.canvas.width / 2, this.canvas.height / 2 + 15);
+  this.ctx.fillText('PRESS [ENTER] OR CLICK TO RESTART', this.canvas.width / 2, this.canvas.height / 2 + 55);
+}*/
 }

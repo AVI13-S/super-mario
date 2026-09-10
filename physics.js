@@ -13,7 +13,7 @@ const JUMP_VELOCITY = -11.2;
 export function updatePhysics(game) {
   const { player, levelManager, entityManager } = game;
 
-  if (game.gameState === 'DYING') {
+  if (game.gameState == 'DYING') {
     game.deathTimer++;
     player.vy += GRAVITY;
     player.y += player.vy;

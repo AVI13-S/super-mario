@@ -72,8 +72,18 @@ export class Game {
   }
 
   showClearScreen() {
+    if (this.levelManager.isLastLevel()) {
+      this.showWinScreen();
+      return;
+    }
     document.getElementById('clear-stats').innerText = `Score: ${this.player.score} | Coins: ${this.player.coins}`;
     document.getElementById('clear-screen').classList.remove('hidden');
+  }
+
+  showWinScreen() {
+    stopMusic();
+    document.getElementById('win-stats').innerText = `Final Score: ${this.player.score} | Coins: ${this.player.coins}`;
+    document.getElementById('win-screen').classList.remove('hidden');
   }
 
   run() {

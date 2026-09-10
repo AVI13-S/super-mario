@@ -44,6 +44,10 @@ export class LevelManager {
     }
   }
 
+  isLastLevel() {
+    return this.currentLevelIndex === this.levels.length - 1;
+  }
+
   getTile(tx, ty) {
     if (tx < 0 || tx >= this.mapW || ty < 0 || ty >= this.mapH) return 0;
     return this.tiles[ty][tx];
