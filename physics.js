@@ -65,7 +65,7 @@ export function updatePhysics(game) {
 
   if (game.gameState !== 'PLAYING') return;
 
-  // Jump Input
+  
   if (keys.jump && player.grounded) {
     const runBoost = Math.abs(player.vx) > 3 ? -0.6 : 0;
     player.vy = JUMP_VELOCITY + runBoost;
@@ -73,7 +73,6 @@ export function updatePhysics(game) {
     playSound(AudioAssets.sfxJump);
   }
 
-  // Horizontal acceleration
   const topSpeed = keys.shift ? RUN_MAX_SPEED : WALK_MAX_SPEED;
   if (keys.left) { player.vx -= WALK_ACCEL; player.facing = -1; }
   if (keys.right) { player.vx += WALK_ACCEL; player.facing = 1; }
@@ -84,7 +83,6 @@ export function updatePhysics(game) {
   player.x += player.vx;
   if (player.x < 0) { player.x = 0; player.vx = 0; }
 
-  // Tile collision - Horizontal
   let left = Math.floor(player.x / TILE_SIZE);
   let right = Math.floor((player.x + player.w) / TILE_SIZE);
   let top = Math.floor(player.y / TILE_SIZE);
@@ -108,7 +106,6 @@ export function updatePhysics(game) {
     }
   }
 
-  // Vertical movement
   player.vy += GRAVITY;
   player.y += player.vy;
 
@@ -145,7 +142,7 @@ export function updatePhysics(game) {
     }
   }
 
-  // Flag hit check
+  
   if (player.x + player.w >= game.FLAG_X && player.x <= game.FLAG_X + 16 && player.y <= game.FLAG_BOTTOM_Y) {
     stopMusic();
     playSound(AudioAssets.sfxFlag);
@@ -157,7 +154,7 @@ export function updatePhysics(game) {
     return;
   }
 
-  // Coin pickups
+  
   for (let i = entityManager.worldCoins.length - 1; i >= 0; i--) {
     const c = entityManager.worldCoins[i];
     if (player.x < c.x + 20 && player.x + player.w > c.x && player.y < c.y + 24 && player.y + player.h > c.y) {
@@ -168,7 +165,7 @@ export function updatePhysics(game) {
     }
   }
 
-  // Enemy updates
+  
   entityManager.enemies.forEach((e) => {
     if (!e.alive) return;
     e.vy += GRAVITY;
