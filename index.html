@@ -1,37 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Super Mario Bros - Original Audio & Complete Level 1-1</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <title>Super Mario Bros Modular</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <canvas id="canvas" width="512" height="480"></canvas>
 
-  <div id="game-container">
-    <canvas id="canvas" width="512" height="448"></canvas>
+  <div id="start-screen" class="overlay">
+    <h1>SUPER MARIO BROS</h1>
+    <button id="start-btn">START GAME</button>
+  </div>
 
-    <div id="start-screen" class="overlay">
-      <h1>SUPER MARIO BROS</h1>
-      <button id="start-btn" class="btn">START GAME</button>
-    </div>
+  <div id="gameover-screen" class="overlay hidden">
+    <h1>GAME OVER</h1>
+    <p id="final-stats"></p>
+    <button id="retry-btn">RETRY</button>
+  </div>
 
-    <div id="gameover-screen" class="overlay hidden">
-      <h1 style="color: #e52521;">GAME OVER</h1>
-      <p id="final-stats" style="color: #fff; font-size: 15px;"></p>
-      <button id="retry-btn" class="btn">RETRY</button>
-    </div>
-
-    <div id="clear-screen" class="overlay hidden">
-      <h1 style="color: #4cd964;">STAGE CLEAR!</h1>
-      <p id="clear-stats" style="color: #fff; font-size: 15px;"></p>
-      <button id="next-btn" class="btn">PLAY AGAIN</button>
+  <div id="clear-screen" class="overlay hidden">
+    <h1>STAGE CLEARED!</h1>
+    <p id="clear-stats"></p>
+    <div class="btn-group">
+      <button id="replay-btn">REPLAY LEVEL</button>
+      <button id="next-btn">NEXT LEVEL</button>
     </div>
   </div>
 
-  <div class="info">
-    CONTROLS: <b>A / D</b> (Move) | <b>Shift</b> (Run) | <b>Space / W</b> (Jump)
-  </div>
-
-  <script src="main.js"></script>
+  <script type="module" src="main.js"></script>
 </body>
 </html>
