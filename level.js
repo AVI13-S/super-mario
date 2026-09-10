@@ -1,6 +1,7 @@
 import { Level1 } from './level1.js';
 import { Level2 } from './level2.js';
 
+
 export const SCALE = 2;
 export const TILE_SIZE = 16 * SCALE;
 
@@ -24,9 +25,6 @@ export class LevelManager {
     for (let r = 0; r < this.mapH; r++) {
       this.tiles[r] = [];
       for (let c = 0; c < this.mapW; c++) {
-        // Levels may store map cells as raw characters ('1', '2', 'S', ' ')
-        // OR as pre-parsed numbers (1, 2, 0). Normalize to a string first so
-        // both formats resolve the same way.
         const raw = map[r][c];
         const ch = typeof raw === 'number' ? String(raw) : raw;
         this.tiles[r][c] = ch === '1' ? 1 : ch === '2' ? 2 : ch === '3' ? 3 : ch === 'S' ? 5 : 0;
