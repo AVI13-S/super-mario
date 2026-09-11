@@ -17,6 +17,8 @@ export class Game {
     this.tick = 0;
     this.deathTimer = 0;
     this.flagWaitTimer = 0;
+    this.time=60;
+    this.timeTick=0;
 
     this.FLAG_X = 118 * TILE_SIZE;
     this.FLAG_TOP_Y = 3 * TILE_SIZE;
@@ -38,6 +40,8 @@ export class Game {
     this.player.resetPosition();
     this.flagY = this.FLAG_TOP_Y;
     this.gameState = 'PLAYING';
+    this.time = levelIndex == 0 ? 60 : 180;
+    this.timeTick=0;
     startMusic();
   }
 
@@ -89,6 +93,18 @@ export class Game {
   run() {
     const loop = () => {
       this.tick++;
+      if (this.gameState === 'PLAYING') {
+        this.timeTick++;
+        if (this.timeTick >= 60) {
+          this.timeTick = 0;
+          if (this.time > 0) {
+            this.time--;
+            if (this.time == 0) {
+              this.handlePlayerDeath(); 
+            }
+          }
+        }
+      }
       updatePhysics(this);
       this.renderer.render(this);
       requestAnimationFrame(loop);
