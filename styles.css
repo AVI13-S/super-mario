@@ -10,6 +10,8 @@ body {
 canvas {
   background: #5c94fc;
   image-rendering: pixelated;
+  height: 100vh;
+  width: 100vw;
 }
 
 .hidden {
