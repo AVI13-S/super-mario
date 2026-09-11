@@ -20,7 +20,7 @@ document.getElementById('retry-btn').addEventListener('click', () => {
 
 document.getElementById('replay-btn').addEventListener('click', () => {
   clearScreen.classList.add('hidden');
-  game.resetFullGame();
+  game.resetFullGame(); 
 });
 
 document.getElementById('next-btn').addEventListener('click', () => {

@@ -3,8 +3,6 @@ export const AudioAssets = {
   sfxJump: new Audio("https://raw.githubusercontent.com/justinmeister/Mario-Level-1/master/resources/sound/small_jump.ogg"),
   sfxCoin: new Audio("https://raw.githubusercontent.com/justinmeister/Mario-Level-1/master/resources/sound/coin.ogg"),
   sfxStomp: new Audio("https://raw.githubusercontent.com/justinmeister/Mario-Level-1/master/resources/sound/stomp.ogg"),
-  sfxFlag: new Audio("https://raw.githubusercontent.com/justinmeister/Mario-Level-1/master/resources/sound/flagpole.ogg"),
-  sfxStageClear: new Audio("https://raw.githubusercontent.com/justinmeister/Mario-Level-1/master/resources/sound/stage_clear.wav"),
   sfxDeath: new Audio("https://raw.githubusercontent.com/justinmeister/Mario-Level-1/master/resources/sound/mario_die.wav")
 };
 

@@ -34,18 +34,18 @@ export class Renderer {
     const startCol = Math.floor(cameraX / TILE_SIZE);
     const endCol = Math.min(levelManager.mapW, startCol + Math.ceil(this.canvas.width / TILE_SIZE) + 2);
     const qFrame = Math.floor(tick / 14) % 3;
-    const mysteryClip = qFrame === 0 ? TILE_CLIPS.mystery1 : qFrame === 1 ? TILE_CLIPS.mystery2 : TILE_CLIPS.mystery3;
+    const mysteryClip = qFrame == 0 ? TILE_CLIPS.mystery1 : qFrame == 1 ? TILE_CLIPS.mystery2 : TILE_CLIPS.mystery3;
 
     for (let r = 0; r < levelManager.mapH; r++) {
       for (let c = startCol; c < endCol; c++) {
         const t = levelManager.getTile(c, r);
         const px = c * TILE_SIZE;
         const py = r * TILE_SIZE;
-        if (t === 1) this.drawTile(TILE_CLIPS.ground, px, py);
-        else if (t === 2) this.drawTile(TILE_CLIPS.brick, px, py);
-        else if (t === 3) this.drawTile(mysteryClip, px, py);
-        else if (t === 4) this.drawTile(TILE_CLIPS.spentBlock, px, py);
-        else if (t === 5) this.drawTile(TILE_CLIPS.stairBlock, px, py);
+        if (t == 1) this.drawTile(TILE_CLIPS.ground, px, py);
+        else if (t == 2) this.drawTile(TILE_CLIPS.brick, px, py);
+        else if (t == 3) this.drawTile(mysteryClip, px, py);
+        else if (t == 4) this.drawTile(TILE_CLIPS.spentBlock, px, py);
+        else if (t == 5) this.drawTile(TILE_CLIPS.stairBlock, px, py);
       }
     }
 
@@ -83,15 +83,15 @@ export class Renderer {
     if (player.visible) {
       this.ctx.save();
       let mClip = MARIO_CLIPS.idle;
-      if (game.gameState === 'DYING') mClip = MARIO_CLIPS.dead;
+      if (game.gameState == 'DYING') mClip = MARIO_CLIPS.dead;
       else if (game.gameState.startsWith('FLAG')) mClip = MARIO_CLIPS.climb;
       else if (!player.grounded) mClip = MARIO_CLIPS.jump;
-      else if (Math.abs(player.vx) > 0.2 || game.gameState === 'WALK_TO_CASTLE') {
+      else if (Math.abs(player.vx) > 0.2 || game.gameState == 'WALK_TO_CASTLE') {
         const walkIdx = Math.floor(tick / 5) % 3;
-        mClip = walkIdx === 0 ? MARIO_CLIPS.walk1 : walkIdx === 1 ? MARIO_CLIPS.walk2 : MARIO_CLIPS.walk3;
+        mClip = walkIdx == 0 ? MARIO_CLIPS.walk1 : walkIdx == 1 ? MARIO_CLIPS.walk2 : MARIO_CLIPS.walk3;
       }
 
-      if (player.facing === -1 && game.gameState !== 'DYING') {
+      if (player.facing == -1 && game.gameState != 'DYING') {
         this.ctx.translate(player.x + player.w, player.y);
         this.ctx.scale(-1, 1);
         this.ctx.drawImage(Sprites.mario, mClip.x, mClip.y, mClip.w, mClip.h, 0, 0, player.w, player.h);
@@ -150,5 +150,4 @@ export class Renderer {
     this.ctx.fillStyle = '#000000';
     this.ctx.fillRect(x + 52, y + 100, 40, 60);
   }
-
 }

@@ -29,12 +29,12 @@ window.addEventListener('keydown', (e) => {
   if (['ArrowLeft', 'KeyA'].includes(e.code)) keys.left = true;
   if (['ArrowRight', 'KeyD'].includes(e.code)) keys.right = true;
   if (['ShiftLeft', 'ShiftRight'].includes(e.code)) keys.shift = true;
-  if (['ArrowUp', 'KeyW', 'Space'].includes(e.code)) keys.jump = true;
+  if (['ArrowUp', 'KeyW'].includes(e.code)) keys.jump = true;
 });
 
 window.addEventListener('keyup', (e) => {
   if (['ArrowLeft', 'KeyA'].includes(e.code)) keys.left = false;
   if (['ArrowRight', 'KeyD'].includes(e.code)) keys.right = false;
   if (['ShiftLeft', 'ShiftRight'].includes(e.code)) keys.shift = false;
-  if (['ArrowUp', 'KeyW', 'Space'].includes(e.code)) keys.jump = false;
+  if (['ArrowUp', 'KeyW'].includes(e.code)) keys.jump = false;
 });

@@ -7,7 +7,7 @@ const GROUND_FRICTION = 0.86;
 const AIR_FRICTION = 0.98;
 const WALK_ACCEL = 0.45;
 const WALK_MAX_SPEED = 3.4;
-const RUN_MAX_SPEED = 4.8;
+const RUN_MAX_SPEED = 5;
 const JUMP_VELOCITY = -11.2;
 
 export function updatePhysics(game) {
@@ -21,9 +21,9 @@ export function updatePhysics(game) {
     return;
   }
 
-  if (game.gameState === 'FLAG_SLIDE') {
-    if (game.flagY < game.FLAG_BOTTOM_Y - 24) game.flagY += 3.2;
-    if (player.y < game.FLAG_BOTTOM_Y - player.h) player.y += 3.2;
+  if (game.gameState == 'FLAG_SLIDE') {
+    if (game.flagY < game.FLAG_BOTTOM_Y - 24) game.flagY += 3;
+    if (player.y < game.FLAG_BOTTOM_Y - player.h) player.y += 3;
     if (game.flagY >= game.FLAG_BOTTOM_Y - 24 && player.y >= game.FLAG_BOTTOM_Y - player.h) {
       game.flagY = game.FLAG_BOTTOM_Y - 24;
       player.y = game.FLAG_BOTTOM_Y - player.h;
@@ -33,18 +33,17 @@ export function updatePhysics(game) {
     return;
   }
 
-  if (game.gameState === 'FLAG_BOTTOM_WAIT') {
+  if (game.gameState == 'FLAG_BOTTOM_WAIT') {
     game.flagWaitTimer++;
     if (game.flagWaitTimer > 28) {
       player.x = game.FLAG_X + 16;
       player.facing = 1;
       game.gameState = 'WALK_TO_CASTLE';
-      playSound(AudioAssets.sfxStageClear);
     }
     return;
   }
 
-  if (game.gameState === 'WALK_TO_CASTLE') {
+  if (game.gameState == 'WALK_TO_CASTLE') {
     player.vy += GRAVITY;
     player.y += player.vy;
     if (player.y >= 13 * TILE_SIZE - player.h) {
@@ -145,7 +144,6 @@ export function updatePhysics(game) {
   
   if (player.x + player.w >= game.FLAG_X && player.x <= game.FLAG_X + 16 && player.y <= game.FLAG_BOTTOM_Y) {
     stopMusic();
-    playSound(AudioAssets.sfxFlag);
     game.gameState = 'FLAG_SLIDE';
     player.vx = 0;
     player.vy = 0;
@@ -192,7 +190,7 @@ export function updatePhysics(game) {
       const groundTileAhead = Math.floor(nextX / TILE_SIZE);
       const tileBelowAhead = levelManager.getTile(groundTileAhead, Math.floor((e.y + e.h + 2) / TILE_SIZE));
 
-      if (tileBelowAhead === 0) {
+      if (tileBelowAhead == 0) {
         e.vx *= -1;
       }
     }
