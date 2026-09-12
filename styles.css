@@ -20,9 +20,30 @@ canvas {
 
 .overlay {
   position: absolute;
-  color: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
   font-family: monospace;
   text-align: center;
+  background: #c84c0c;              
+  border: 6px solid #6a2a00;        
+  box-shadow: 0 0 0 3px #ffcc00,    
+              6px 6px 0 #000;      
+  border-radius: 0;                 
+  padding: 24px 32px;
+  image-rendering: pixelated;
+}
+
+.overlay h1 {
+  margin: 0 0 12px 0;
+  font-size: 24px;
+  text-shadow: 3px 3px 0 #000;
+  letter-spacing: 1px;
+}
+
+.overlay p {
+  margin: 0 0 12px 0;
 }
 
 .btn-group {
@@ -37,4 +58,18 @@ button {
   font-family: monospace;
   font-size: 14px;
   cursor: pointer;
+  background: #fbd000;              
+  border: 3px solid #6a2a00;
+  box-shadow: 3px 3px 0 #000;
+  color: #6a2a00;
+  font-weight: bold;
+}
+
+button:hover {
+  background: #ffe14d;
+}
+
+button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 #000;
 }

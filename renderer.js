@@ -103,6 +103,11 @@ export class Renderer {
 
     this.ctx.restore();
 
+    this.ctx.save();
+    this.ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';   
+    this.ctx.fillRect(0, 0, this.canvas.width, 56);
+    this.ctx.restore();
+
     
     this.ctx.fillStyle = '#ffffff';
     this.ctx.font = '16px monospace';
